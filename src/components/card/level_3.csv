@@ -1,0 +1,17 @@
+discount,points,onyx,diamond,ruby,sapphire,emerald
+onyx,3,0,3,3,3,5
+onyx,4,0,0,7,0,0
+onyx,4,3,0,6,0,3
+onyx,5,3,0,7,0,0
+sapphire,3,5,3,3,0,3
+sapphire,4,0,7,0,0,0
+sapphire,4,3,6,0,3,0
+sapphire,5,0,7,0,3,0
+emerald,3,3,5,3,3,0
+emerald,4,0,3,0,6,3
+emerald,4,0,0,0,7,0
+emerald,5,0,0,0,7,3
+ruby,3,3,3,0,5,3
+ruby,4,0,0,0,0,7
+ruby,4,0,0,3,3,6
+ruby,5,0,0,3,0,7
