@@ -44,7 +44,7 @@ function create() {
   new Card(this, 120, 10, {stone: 'ruby'})
   new Card(this, 120, 40, {stone: 'diamond'})
 
-  new Noble(this, 120, 70, { score: 4, costs: [
+  new Noble(this, 250, 10, { score: 4, costs: [
     { card: 'onyx', value: 3 },
     { card: 'diamond', value: 3 },
     // { card: 'sapphire', value: 3 }
