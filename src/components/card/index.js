@@ -3,7 +3,7 @@ import  Phaser  from 'phaser'
 import config from './config'
 import Coin from '../coin'
 
-  export default class Card extends Phaser.GameObjects.Container {
+export default class Card extends Phaser.GameObjects.Container {
   constructor(scene, x, y, opts) {
     const stone = opts && opts.stone? opts.stone : 'onyx'
 

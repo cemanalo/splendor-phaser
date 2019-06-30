@@ -1,8 +1,7 @@
 import Phaser from "phaser";
-import card1 from "./assets/cards/0.png";
-import card2 from "./assets/cards/2.png";
 
 import Card from './components/card'
+import Noble from './components/noble'
 
 const config = {
   type: Phaser.AUTO,
@@ -19,8 +18,8 @@ const config = {
 const game = new Phaser.Game(config);
 
 function preload() {
-  this.load.image("card1", card1);
-  this.load.image("card2", card2);
+  // this.load.image("card1", card1);
+  // this.load.image("card2", card2);
 }
 
 function create() {
@@ -44,5 +43,11 @@ function create() {
   ]})
   new Card(this, 120, 10, {stone: 'ruby'})
   new Card(this, 120, 40, {stone: 'diamond'})
+
+  new Noble(this, 120, 70, { score: 4, costs: [
+    { card: 'onyx', value: 3 },
+    { card: 'diamond', value: 3 },
+    // { card: 'sapphire', value: 3 }
+  ]})
   // this.add.existing(container)
 }
