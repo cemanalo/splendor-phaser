@@ -1,8 +1,6 @@
-import Phaser from "phaser"
 import shuffle from 'lodash/shuffle'
 
 import Card from '../components/card'
-import Noble from '../components/noble'
 
 import Level1Cards from '../components/card/contents/level_1'
 import Level2Cards from '../components/card/contents/level_2'
@@ -16,13 +14,10 @@ export default (scene) => {
   const xs = 20
   const ys = 120
 
-  console.log(shuffledL1Cards)
   for(var i = 0; i < 4; i++) {
     new Card(scene, xs + (120 * i), ys, shuffledL1Cards.pop())
     new Card(scene, xs + (120 * i), ys + 150, shuffledL2Cards.pop())
     new Card(scene, xs + (120 * i), ys + 300, shuffledL3Cards.pop())
   }
 
-
-  console.log(shuffledL1Cards)
 }

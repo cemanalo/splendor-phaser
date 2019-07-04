@@ -1,10 +1,12 @@
 import Phaser from "phaser";
 
-import Card from './components/card'
-import Noble from './components/noble'
+import TitleScene from './scenes/title'
+import LobbyScene from './scenes/lobby'
 import setup from './board/setup'
+import { connect } from './sfs'
 
-import Level1 from './components/card/contents/level_1'
+const titleScene = new TitleScene()
+const lobbyScene = new LobbyScene()
 
 const config = {
   type: Phaser.AUTO,
@@ -12,48 +14,24 @@ const config = {
   width: 1024,
   height: 800,
   backgroundColor: 0x8a471e,
-  scene: {
-    preload: preload,
-    create: create
-  }
 };
 
-const game = new Phaser.Game(config);
+export const game  = new Phaser.Game(config);
 
-function preload() {
-  // this.load.image("card1", card1);
-  // this.load.image("card2", card2);
-}
+game.scene.add('TitleScene', titleScene)
+game.scene.add('LobbyScene', lobbyScene)
+game.scene.start('TitleScene')
 
-function create() {
-  // const card1 = this.add.image(0, 0, "card1");
-  // const card2 = this.add.image(0, 32, "card2");
 
-  // const container = new Phaser.GameObjects.Container(this, 100, 100, [card1, card2])
-  // const card = new Card(this, 10, 10, {stone: 'sapphire', costs: [
-  //   {
-  //     stone: 'diamond',
-  //     value: 3
-  //   },
-  //   {
-  //     stone: 'ruby',
-  //     value: 1
-  //   },
-  //   {
-  //     stone: 'sapphire',
-  //     value: 2
-  //   }
-  // ]})
-  // new Card(this, 120, 10, {stone: 'ruby'})
-  // new Card(this, 120, 40, {stone: 'diamond'})
+// let sfs;
 
-  // new Noble(this, 250, 10, { score: 4, costs: [
-  //   { card: 'onyx', value: 3 },
-  //   { card: 'diamond', value: 3 },
-  //   // { card: 'sapphire', value: 3 }
-  // ]})
-  // this.add.existing(container)
+// function preload() {
+//   // this.load.image("card1", card1);
+//   // this.load.image("card2", card2);
+// }
 
-  // new Card(this, 10, 10, Level1[0])
-  setup(this)
-}
+// function create() {
+//   sfs = connect()
+//   setup(this)
+
+// }
