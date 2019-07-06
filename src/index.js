@@ -3,7 +3,7 @@ import Phaser from "phaser";
 import TitleScene from './scenes/title'
 import LobbyScene from './scenes/lobby'
 import setup from './board/setup'
-import { connect } from './sfs'
+// import { connect } from './sfs'
 
 const titleScene = new TitleScene()
 const lobbyScene = new LobbyScene()

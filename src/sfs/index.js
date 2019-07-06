@@ -1,7 +1,7 @@
 import * as SFS2X from "sfs2x-api";
 import { login } from './login'
 
-let sfs
+export let sfs;
 
 export const connect = () => {
   var config = {}
@@ -60,32 +60,21 @@ function onErrorLogged(event)
 // SFS EVENT HANDLERS
 //------------------------------------
 
-function onConnection(event)
-{
-	if (event.success)
-	{
+function onConnection(event) {
+  if (event.success) {
     trace("Connected to SmartFoxServer 2X!<br>SFS2X API version: " + sfs.version);
-    login(sfs)
-	}
-	else
-	{
-		trace("Connection failed: " + (event.errorMessage ? event.errorMessage + " (" + event.errorCode + ")" : "Is the server running at all?"));
-
-		// Reset
-		reset();
-	}
+	}	else {
+    trace("Connection failed: " + (event.errorMessage ? event.errorMessage + " (" + event.errorCode + ")" : "Is the server running at all?"));
+    reset();
+  }
 }
 
-function onConnectionLost(event)
-{
-	trace("Disconnection occurred; reason is: " + event.reason);
-
-	// Reset
-	reset();
+function onConnectionLost(event) {
+  trace("Disconnection occurred; reason is: " + event.reason)
+  reset()
 }
 
-function reset()
-{
+function reset() {
 	// Remove SFS2X listeners
 	sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION, onConnection);
 	sfs.removeEventListener(SFS2X.SFSEvent.CONNECTION_LOST, onConnectionLost);
@@ -99,6 +88,5 @@ function reset()
 }
 
 function trace(message, prefix) {
-  // if(isDebug)
   console.log(`${prefix || ''}: ${message}`)
 }
