@@ -2,9 +2,10 @@ import Phaser from 'phaser'
 
 export default class Button extends Phaser.GameObjects.Container {
   constructor(scene, x, y, text, opts = {}) {
+    super(scene, x, y)
+    
     const len = text.length
     const width = (len * 10) + 20
-    super(scene, x, y)
 
     this.bg = new Phaser.GameObjects.Rectangle(scene, width / 2 -12, 10, width, 25, 0x000000)
     this.textObj = new Phaser.GameObjects.Text(scene, 0, 0, text)
