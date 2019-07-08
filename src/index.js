@@ -20,8 +20,8 @@ export const game  = new Phaser.Game(config);
 
 game.scene.add('TitleScene', titleScene)
 game.scene.add('LobbyScene', lobbyScene)
-// game.scene.start('TitleScene')
-game.scene.start('LobbyScene')
+game.scene.start('TitleScene')
+// game.scene.start('LobbyScene')
 
 
 // let sfs;
