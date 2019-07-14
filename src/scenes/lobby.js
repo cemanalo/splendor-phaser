@@ -17,8 +17,10 @@ export default class LobbyScene extends Phaser.Scene {
     this.add.line(0, 0, 512, 0, 512, 1600, 0xff0000)
     this.add.line(0, 0, 0, 400, 2048, 400, 0xff0000)
 
-    new RoomList(this, 120, 250)
+    this.roomList = new RoomList(this, 120, 250)
     new Button(this, 830, 200, 'Create', { pointerdown: this.onCreateButtonClick })
+    sfs.addEventListener(SFS2X.SFSEvent.ROOM_ADD, this.onRoomCreated, this)
+    sfs.addEventListener(SFS2X.SFSEvent.ROOM_REMOVE, this.onRoomRemoved, this);
     
     // sfs.send(new SFS2X.CreateSFSGameRequest(settings))
     // new RoomItem(this, 850, 150)
@@ -33,5 +35,14 @@ export default class LobbyScene extends Phaser.Scene {
     settings.notifyGameStarted = true
 
     sfs.send(new SFS2X.CreateSFSGameRequest(settings))
+  }
+
+  onRoomCreated(evt) {
+    const room = evt.room
+    this.roomList.addRoom(room)
+  }
+
+  onRoomRemoved(evt) {
+    this.roomList.removeRoom(evt.room)
   }
 }

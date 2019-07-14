@@ -20,10 +20,6 @@ export default class RoomItem extends Phaser.GameObjects.Container {
 
     this.background.setInteractive()
 
-    // this.background.on('pointerdown', () => {
-    //   console.log('test')
-    //   this.updateRoom(2, 4)
-    // })
     scene.add.existing(this)
   }
 
